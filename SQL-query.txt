@@ -1,0 +1,50 @@
+● 1    Selezionare tutti gli ospiti
+● 2    Selezionare tutti gli ospiti con document type = a CI
+● 3    Selezionare i paganti che abbiano un ospite id associato
+● 4    Selezionare tutte le stanze del primo piano
+● 5    Selezionare tutti gli ospiti che iniziano per E
+● 6    Selezionare tutti gli ospiti che abbiano meno di 30 anni
+● 7    Seleziona tutte le prenotazioni precedenti a maggio 2018
+
+
+● 1 
+
+SELECT *
+FROM `ospiti`;
+
+● 2
+
+SELECT *
+FROM `ospiti`
+WHERE `document_type` = 'CI';
+
+● 3
+
+SELECT * 
+FROM `paganti`
+WHERE `ospite_id`;
+
+● 4
+
+SELECT *	
+FROM `paganti`
+WHERE `floor` = '1';
+
+● 5
+
+SELECT *
+FROM `ospiti`
+WHERE `name` LIKE 'E%'
+OR `lastname` LIKE 'E%';
+
+● 6
+
+SELECT *
+FROM `ospiti`
+WHERE CURRENT_DATE - `date_of_birth` < 30;
+
+● 7
+
+SELECT *
+FROM `prenotazioni`
+WHERE `created_at` < '2018-05-01';
